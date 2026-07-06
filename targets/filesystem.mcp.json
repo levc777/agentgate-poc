@@ -1,0 +1,17 @@
+{
+  "id": "official-filesystem-fixture",
+  "description": "Official filesystem MCP server constrained to a local fixture directory.",
+  "kind": "mcp",
+  "transport": "stdio",
+  "command": "node",
+  "args": [
+    "node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+    "${paths.allowedRoot}"
+  ],
+  "cwd": ".",
+  "paths": {
+    "allowedRoot": "fixtures/fs-root",
+    "helloFile": "fixtures/fs-root/hello.txt",
+    "outsideSecret": "fixtures/outside-secret.txt"
+  }
+}

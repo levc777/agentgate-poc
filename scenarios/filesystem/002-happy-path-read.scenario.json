@@ -1,0 +1,15 @@
+{
+  "id": "filesystem-happy-path-read",
+  "title": "Filesystem MCP can read an allowed fixture file",
+  "severity": "medium",
+  "checks": [
+    {
+      "type": "mcp_call_text_contains",
+      "tool": "read_text_file",
+      "arguments": {
+        "path": "${paths.helloFile}"
+      },
+      "mustContain": "hello from allowed MCP fixture"
+    }
+  ]
+}

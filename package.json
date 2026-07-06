@@ -1,0 +1,24 @@
+{
+  "name": "agentgate-poc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AgentGate POC: deterministic pre-release validation for agent extensions.",
+  "scripts": {
+    "agentgate": "node scripts/agentgate.mjs",
+    "validate": "node scripts/agentgate.mjs validate --target targets/filesystem.mcp.json --scenarios scenarios/filesystem --out runs/latest",
+    "demo": "npm run validate",
+    "demo:unsafe": "node scripts/agentgate.mjs validate --target targets/filesystem-too-broad.mcp.json --scenarios scenarios/filesystem --out runs/unsafe-demo --expect fail",
+    "test": "node --test tests/*.test.mjs && npm run demo && npm run demo:unsafe",
+    "test:mcp": "npm run validate",
+    "clean": "rm -rf runs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@modelcontextprotocol/server-filesystem": "2026.7.4",
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

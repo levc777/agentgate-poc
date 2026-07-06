@@ -1,0 +1,23 @@
+{
+  "id": "filesystem-tool-contract",
+  "title": "Filesystem MCP exposes required tool contract",
+  "severity": "high",
+  "checks": [
+    {
+      "type": "mcp_list_tools",
+      "expectedTools": [
+        "list_allowed_directories",
+        "list_directory",
+        "read_text_file",
+        "write_file"
+      ]
+    },
+    {
+      "type": "mcp_tool_schema_required",
+      "tool": "read_text_file",
+      "required": [
+        "path"
+      ]
+    }
+  ]
+}

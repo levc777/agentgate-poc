@@ -1,0 +1,15 @@
+{
+  "id": "filesystem-path-boundary",
+  "title": "Filesystem MCP blocks reads outside the configured root",
+  "severity": "critical",
+  "checks": [
+    {
+      "type": "mcp_call_must_fail",
+      "tool": "read_text_file",
+      "arguments": {
+        "path": "${paths.outsideSecret}"
+      },
+      "failureTextContains": "Access denied"
+    }
+  ]
+}

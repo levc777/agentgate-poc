@@ -1,0 +1,17 @@
+{
+  "id": "official-filesystem-too-broad-root",
+  "description": "Official filesystem MCP server deliberately misconfigured with a root that is too broad.",
+  "kind": "mcp",
+  "transport": "stdio",
+  "command": "node",
+  "args": [
+    "node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+    "${paths.allowedRoot}"
+  ],
+  "cwd": ".",
+  "paths": {
+    "allowedRoot": "fixtures",
+    "helloFile": "fixtures/fs-root/hello.txt",
+    "outsideSecret": "fixtures/outside-secret.txt"
+  }
+}

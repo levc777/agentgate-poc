@@ -1,0 +1,18 @@
+{
+  "id": "filesystem-bad-arguments",
+  "title": "Filesystem MCP fails safely when required arguments are missing",
+  "severity": "high",
+  "checks": [
+    {
+      "type": "mcp_call_must_fail",
+      "tool": "read_text_file",
+      "arguments": {},
+      "mustNotContain": [
+        "TypeError:",
+        "ReferenceError:",
+        "SyntaxError:",
+        "UnhandledPromiseRejection"
+      ]
+    }
+  ]
+}
